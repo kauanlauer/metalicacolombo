@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metálica Colombo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+</head>
+<body>
+    <header class="fixed-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="logo.png" alt="Metálica Colombo Logo" width="100" height="100">
+            </div>
+            <div class="menu-container">
+                <h1 class="header-title">Metálica Colombo</h1>
+                <nav class="main-nav">
+                    <a href="#" class="header-button" onclick="scrollToTop()">Home</a>
+                    <a href="#galeria" class="header-button">Galeria</a>
+                    <a href="#contato" class="header-button">Contato</a>
+                    <a href="#sobre-nos" class="header-button">Sobre Nós</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <button class="whatsapp-button" onclick="openWhatsApp()">
+        <a href="https://wa.me/seu_numero_telefone" target="_blank">
+            <img src="whatsapp-icon.png" alt="WhatsApp Icon" width="30" height="30">
+        </a>
+    </button>    
+    <section class="servicos">
+        <h2>Nossos Serviços</h2>
+        <div class="servicos-container">
+            <div class="servico">
+                <p>Mezanino</p>
+            </div>
+            <div class="servico">
+                <p>Coberturas</p>
+            </div>
+            <div class="servico">
+                <p>Barracões</p>
+            </div>
+            <div class="servico">
+                <p>Portões</p>
+            </div>
+            <div class="servico">
+                <p>Grades</p>
+            </div>
+            <div class="servico">
+                <p>Calhas</p>
+            </div>
+            <div class="servico">
+                <p>Gradil</p>
+            </div>
+            <div class="servico">
+                <p>Guarda corpo</p>
+            </div>
+            <div class="servico">
+                <p>Outdoor</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="sobre-nos" id="sobre-nos">
+        <div class="background-shape"></div>
+        <h2>Sobre Nós</h2>
+        <p>Com uma trajetória consolidada de anos já, somos referência no ramo de serralheria, levando nossa expertise por toda a região. Nossa equipe especializada trabalha incansavelmente, realizando obras que refletem o melhor em produtos metálicos.</p>
+        <p>Nosso compromisso vai além da simples fabricação e instalação; é a garantia de qualidade e durabilidade que nos diferencia. Cada projeto é executado com maestria, refletindo a confiança conquistada ao longo dos anos.</p>
+        <p>Orgulhamo-nos de ter contribuído para a paisagem urbana e industrial de diversas localidades, deixando nossa marca em construções notáveis. Do design inovador à execução precisa, cada projeto é uma expressão da nossa paixão por superar expectativas.</p>
+        <p>Na Metálica Colombo, acreditamos que um serviço bem feito não precisa custar uma fortuna. Oferecemos preços justos, assegurando que a excelência em cada detalhe seja acessível a todos que buscam o melhor em soluções metálicas.</p>
+        <p>Nossa jornada é marcada por parcerias duradouras e clientes satisfeitos, uma prova do nosso comprometimento com a entrega pontual, serviço confiável e atendimento personalizado. Estamos prontos para transformar suas ideias em realidade, unindo funcionalidade e estética com maestria.</p>
+        <a href="#sobre-nos" class="sobre-nos-button">Saiba Mais</a>
+    </section>
+
+    <section class="contato" id="contato">
+        <div class="background-shape"></div>
+        <h2>Entre em Contato</h2>
+        <p>Estamos prontos para atender às suas necessidades. Entre em contato conosco para um orçamento personalizado. Fale diretamente com o dono da serralheria, Natan Pinheiro.</p>
+        
+        <!-- Adicionando os links com ícones -->
+        <p>
+            <a href="https://wa.me/seu_numero_telefone?text=Olá%20Natan,%20gostaria%20de%20solicitar%20um%20orçamento%20e%20pedir%20informações%20sobre%20seus%20serviços" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            &nbsp;&nbsp;&nbsp; <!-- Espaço para separar os ícones -->
+            <a href="https://www.instagram.com/seu_perfil_instagram" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </p>
+    </section>
+    <footer>
+        <p>&copy; 2023 Metálica Colombo. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+        // Função para rolar suavemente até o topo
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        // Adicione este script para ativar o scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
