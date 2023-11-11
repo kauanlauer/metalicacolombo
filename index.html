@@ -19,7 +19,7 @@
                     <a href="#" class="header-button" onclick="scrollToTop()">Home</a>
                     <a href="#galeria" class="header-button">Galeria</a>
                     <a href="#contato" class="header-button">Contato</a>
-                    <a href="#sobre-nos" class="header-button">Sobre Nós</a>
+                    <a href="#sobre-nos" class="header-button sobre-nos-button">Sobre Nós</a>
                 </nav>
             </div>
         </div>
@@ -63,16 +63,15 @@
     </section>
 
     <section class="sobre-nos" id="sobre-nos">
-        <div class="background-shape"></div>
         <h2>Sobre Nós</h2>
-        <p>Com uma trajetória consolidada de anos já, somos referência no ramo de serralheria, levando nossa expertise por toda a região. Nossa equipe especializada trabalha incansavelmente, realizando obras que refletem o melhor em produtos metálicos.</p>
-        <p>Nosso compromisso vai além da simples fabricação e instalação; é a garantia de qualidade e durabilidade que nos diferencia. Cada projeto é executado com maestria, refletindo a confiança conquistada ao longo dos anos.</p>
-        <p>Orgulhamo-nos de ter contribuído para a paisagem urbana e industrial de diversas localidades, deixando nossa marca em construções notáveis. Do design inovador à execução precisa, cada projeto é uma expressão da nossa paixão por superar expectativas.</p>
-        <p>Na Metálica Colombo, acreditamos que um serviço bem feito não precisa custar uma fortuna. Oferecemos preços justos, assegurando que a excelência em cada detalhe seja acessível a todos que buscam o melhor em soluções metálicas.</p>
-        <p>Nossa jornada é marcada por parcerias duradouras e clientes satisfeitos, uma prova do nosso comprometimento com a entrega pontual, serviço confiável e atendimento personalizado. Estamos prontos para transformar suas ideias em realidade, unindo funcionalidade e estética com maestria.</p>
-        <a href="#sobre-nos" class="sobre-nos-button">Saiba Mais</a>
+        <p>Somos uma empresa especializada em fabricação e instalação de produtos metálicos, garantindo qualidade e durabilidade.</p>
+        <div id="conteudo-expandido" style="display: none;">
+            <p>Temos anos de experiência atendendo clientes em todo o sul do Brasil, proporcionando soluções em serralheria com compromisso, confiabilidade e preços justos.</p>
+            <p>Nossa equipe viaja extensivamente para realizar obras e levar o melhor da Metálica Colombo a diferentes regiões.</p>
+            <p>Garantimos que nosso trabalho é feito com maestria, oferecendo produtos que atendem às necessidades de nossos clientes.</p>
+        </div>
+        <button class="sobre-nos-button" id="btn-saiba-mais" onclick="toggleConteudo()">Saiba Mais</button>
     </section>
-
     <section class="contato" id="contato">
         <div class="background-shape"></div>
         <h2>Entre em Contato</h2>
@@ -109,6 +108,20 @@
                 });
             });
         });
+
+        // Função para mostrar/ocultar conteúdo na seção "Sobre Nós"
+        function toggleConteudo() {
+            var conteudoExpandido = document.getElementById('conteudo-expandido');
+            var btnSaibaMais = document.getElementById('btn-saiba-mais');
+
+            if (conteudoExpandido.style.display === 'none') {
+                conteudoExpandido.style.display = 'block';
+                btnSaibaMais.innerHTML = 'Mostrar Menos';
+            } else {
+                conteudoExpandido.style.display = 'none';
+                btnSaibaMais.innerHTML = 'Saiba Mais';
+            }
+        }
     </script>
 </body>
 </html>
