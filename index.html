@@ -6,6 +6,7 @@
     <title>Metálica Colombo</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header class="fixed-header">
@@ -16,7 +17,7 @@
             <div class="menu-container">
                 <h1 class="header-title"></h1>
                 <nav class="main-nav">
-                    <a href="#" class="header-button" onclick="scrollToTop()">Home</a>
+                    <a href="#home" class="header-button">Home</a>
                     <a href="#galeria" class="header-button">Galeria</a>
                     <a href="#contato" class="header-button">Contato</a>
                     <a href="#sobre-nos" class="header-button">Sobre Nós</a>
@@ -73,12 +74,10 @@
     <section class="sobre-nos" id="sobre-nos">
         <h2>Sobre Nós</h2>
         <p>Somos uma empresa especializada em fabricação e instalação de produtos metálicos, garantindo qualidade e durabilidade.</p>
-        <div id="conteudo-expandido" style="display: none;">
             <p>Temos anos de experiência atendendo clientes em todo o sul do Brasil, proporcionando soluções em serralheria com compromisso, confiabilidade e preços justos.</p>
             <p>Nossa equipe viaja extensivamente para realizar obras e levar o melhor da Metálica Colombo a diferentes regiões.</p>
             <p>Garantimos que nosso trabalho é feito com maestria, oferecendo produtos que atendem às necessidades de nossos clientes.</p>
         </div>
-        <button class="sobre-nos-button" id="btn-saiba-mais" onclick="toggleConteudo()">Saiba Mais</button>
     </section>
     <section class="contato" id="contato">
         <div class="background-shape"></div>
@@ -96,40 +95,70 @@
             </a>
         </p>
     </section>
+    <section class="galeria" id="galeria">
+        <h2>Galeria</h2>
+        <div class="galeria-container">
+            <!-- Código para as 10 imagens -->
+            <div class="slide">
+                <img src="imagem (1).jpg" alt="Imagem 1">
+            </div>
+            <div class="slide">
+                <img src="imagem (2).jpg" alt="Imagem 2">
+            </div>
+            <div class="slide">
+                <img src="imagem (3).jpg" alt="Imagem 3">
+            </div>
+            <div class="slide">
+                <img src="imagem (4).jpg" alt="Imagem 4">
+            </div>
+            <div class="slide">
+                <img src="imagem (5).jpg" alt="Imagem 5">
+            </div>
+            <div class="slide">
+                <img src="imagem (6).jpg" alt="Imagem 6">
+            </div>
+            <div class="slide">
+                <img src="imagem (7).jpg" alt="Imagem 7">
+            </div>
+            <div class="slide">
+                <img src="imagem (8).jpg" alt="Imagem 8">
+            </div>
+            <div class="slide">
+                <img src="imagem (9).jpg" alt="Imagem 9">
+            </div>
+            <div class="slide">
+                <img src="imagem (10).jpg" alt="Imagem 10">
+            </div>
+        </div>
+    </section>
     <footer>
         <p>&copy; 2023 Metálica Colombo. Todos os direitos reservados.</p>
     </footer>
+    <script src="script.js"></script>
     <script>
-        // Função para rolar suavemente até o topo
-        function scrollToTop() {
-            document.body.scrollTop = 0;
-            document.documentElement.scrollTop = 0;
-        }
-
-        // Adicione este script para ativar o scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        document.addEventListener("DOMContentLoaded", function () {
+            var galeriaContainer = document.querySelector(".galeria-container");
+    
+            galeriaContainer.addEventListener("click", function (event) {
+                // Verifica se o clique ocorreu em uma imagem dentro da galeria
+                if (event.target.tagName === "IMG" && event.target.parentElement.classList.contains("slide")) {
+                    var imageSrc = event.target.getAttribute("src");
+    
+                    // Cria um elemento de imagem em tela cheia
+                    var fullscreenImage = document.createElement("div");
+                    fullscreenImage.classList.add("fullscreen-image");
+                    fullscreenImage.style.backgroundImage = "url('" + imageSrc + "')";
+    
+                    // Adiciona o elemento em tela cheia ao corpo do documento
+                    document.body.appendChild(fullscreenImage);
+    
+                    // Adiciona um evento de clique para fechar a imagem em tela cheia
+                    fullscreenImage.addEventListener("click", function () {
+                        document.body.removeChild(fullscreenImage);
+                    });
+                }
             });
         });
-
-        // Função para mostrar/ocultar conteúdo na seção "Sobre Nós"
-        function toggleConteudo() {
-            var conteudoExpandido = document.getElementById('conteudo-expandido');
-            var btnSaibaMais = document.getElementById('btn-saiba-mais');
-
-            if (conteudoExpandido.style.display === 'none') {
-                conteudoExpandido.style.display = 'block';
-                btnSaibaMais.innerHTML = 'Mostrar Menos';
-            } else {
-                conteudoExpandido.style.display = 'none';
-                btnSaibaMais.innerHTML = 'Saiba Mais';
-            }
-        }
-    </script>
+    </script>    
 </body>
 </html>

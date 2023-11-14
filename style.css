@@ -2,7 +2,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+    background: linear-gradient(to right, #dcdcdc, #c0c0c0); /* Gradiente de prata */
     color: #495057;
     position: relative;
 }
@@ -53,9 +53,9 @@ body {
 }
 
 .header-button {
-    background-color: #28a745;
+    background-color: #007bff;
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     text-decoration: none;
@@ -64,9 +64,8 @@ body {
 }
 
 .header-button:hover {
-    background-color: #218838;
+    background-color: #0056b3;
 }
-
 .servicos, .sobre-nos, .contato {
     margin: 80px auto;
     padding: 30px;
@@ -203,7 +202,7 @@ section.contato p a {
 .sobre-nos-button {
     background-color: #007bff;
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px 20px;
     border: none;
     border-radius: 4px;
     text-decoration: none;
@@ -213,4 +212,106 @@ section.contato p a {
 
 .sobre-nos-button:hover {
     background-color: #0056b3;
+}
+
+header {
+    background-image: url('fundo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 0.1em;
+    position: relative;
+}
+
+.header-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10%;
+    height: 10%;
+    background-color: rgba(0, 0, 0, 0.5); /* Sobreposição escura */
+}
+.sobre-nos p {
+    transition: max-height 0.5s ease;
+    overflow: hidden;
+    max-height: 100px; /* Altura máxima inicial */
+}
+
+#conteudo-expandido {
+    max-height: 500px; /* Altura máxima expandida */
+}
+/* Adicione a seguinte regra para a seção de galeria */
+.galeria {
+    margin: 80px auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.galeria h2 {
+    text-align: center;
+}
+
+.galeria-container {
+    display: flex;
+    overflow-x: auto; /* Adicione uma barra de rolagem horizontal se necessário */
+}
+
+.slide {
+    flex: 0 0 auto;
+    margin-right: 20px;
+}
+
+.slide img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+  /* Adicione um estilo para as imagens no slide */
+  .slide img {
+    width: 100%; /* Faz as imagens ocuparem 100% da largura do contêiner pai */
+    height: auto; /* Mantém a proporção original da imagem */
+}
+
+/* Adicione um estilo para o contêiner do slide */
+/* Adicione um estilo para o contêiner do slide */
+.galeria-container {
+    display: slide;
+    overflow-x: auto; /* Permite rolar horizontalmente se o conteúdo ultrapassar a largura */
+    scroll-snap-type: x mandatory; /* Faz com que o scroll "snap" para cada imagem */
+    -webkit-overflow-scrolling: touch; /* Ativa o comportamento de rolagem suave no iOS */
+}
+
+/* Adicione um estilo para cada imagem no slide */
+.slide {
+    flex: 0 0 30%; /* Define a largura de cada imagem no slide */
+    scroll-snap-align: start; /* Alinha cada imagem ao início do contêiner do slide */
+    margin-right: 10px; /* Adiciona um espaço entre as imagens */
+    max-height: 200px; /* Altura máxima das imagens */
+}
+
+/* Adicione um estilo para as imagens no slide */
+.slide img {
+    width: 100%; /* Faz as imagens ocuparem 100% da largura do contêiner pai */
+    height: auto; /* Mantém a proporção original da imagem */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Adiciona estilo para a imagem em tela cheia */
+.fullscreen-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: zoom-out;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro transparente */
 }
