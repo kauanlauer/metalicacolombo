@@ -241,7 +241,7 @@ header {
 #conteudo-expandido {
     max-height: 500px; /* Altura máxima expandida */
 }
-/* Adicione a seguinte regra para a seção de galeria */
+/* Adicione este código ao seu arquivo de estilo para a galeria */
 .galeria {
     margin: 80px auto;
     padding: 30px;
@@ -257,50 +257,46 @@ header {
 
 .galeria-container {
     display: flex;
-    overflow-x: auto; /* Adicione uma barra de rolagem horizontal se necessário */
+    overflow-x: auto;
 }
 
+/* Adicione este código ao seu arquivo de estilo para a galeria */
 .slide {
-    flex: 0 0 auto;
-    margin-right: 20px;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    transition: opacity 0.5s;
+    max-width: 800px; /* Defina a largura máxima desejada para as imagens */
+    margin: 0 auto; /* Centraliza a imagem na tela */
 }
 
 .slide img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;
+    height: 300px; /* Defina a altura desejada para as imagens */
+    object-fit: cover; /* Garante que a imagem cubra a caixa mantendo a proporção */
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-  /* Adicione um estilo para as imagens no slide */
-  .slide img {
-    width: 100%; /* Faz as imagens ocuparem 100% da largura do contêiner pai */
-    height: auto; /* Mantém a proporção original da imagem */
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura máxima definida */
 }
 
-/* Adicione um estilo para o contêiner do slide */
-/* Adicione um estilo para o contêiner do slide */
-.galeria-container {
-    display: slide;
-    overflow-x: auto; /* Permite rolar horizontalmente se o conteúdo ultrapassar a largura */
-    scroll-snap-type: x mandatory; /* Faz com que o scroll "snap" para cada imagem */
-    -webkit-overflow-scrolling: touch; /* Ativa o comportamento de rolagem suave no iOS */
+/* Adiciona estilo para o controle deslizante */
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #007bff;
+    transition: color 0.3s;
 }
 
-/* Adicione um estilo para cada imagem no slide */
-.slide {
-    flex: 0 0 30%; /* Define a largura de cada imagem no slide */
-    scroll-snap-align: start; /* Alinha cada imagem ao início do contêiner do slide */
-    margin-right: 10px; /* Adiciona um espaço entre as imagens */
-    max-height: 200px; /* Altura máxima das imagens */
+.prev:hover,
+.next:hover {
+    color: #0056b3;
 }
 
-/* Adicione um estilo para as imagens no slide */
-.slide img {
-    width: 100%; /* Faz as imagens ocuparem 100% da largura do contêiner pai */
-    height: auto; /* Mantém a proporção original da imagem */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 /* Adiciona estilo para a imagem em tela cheia */
 .fullscreen-image {
     position: fixed;

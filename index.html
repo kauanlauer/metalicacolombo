@@ -130,6 +130,8 @@
                 <img src="imagem (10).jpg" alt="Imagem 10">
             </div>
         </div>
+        <button class="prev">&lt;</button>
+    <button class="next">&gt;</button>
     </section>
     <footer>
         <p>&copy; 2023 Metálica Colombo. Todos os direitos reservados.</p>
@@ -138,27 +140,47 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             var galeriaContainer = document.querySelector(".galeria-container");
+            var slider = document.querySelector(".slider");
+    
+            document.querySelector(".prev").addEventListener("click", function () {
+                slide(-1);
+            });
+    
+            document.querySelector(".next").addEventListener("click", function () {
+                slide(1);
+            });
     
             galeriaContainer.addEventListener("click", function (event) {
-                // Verifica se o clique ocorreu em uma imagem dentro da galeria
                 if (event.target.tagName === "IMG" && event.target.parentElement.classList.contains("slide")) {
                     var imageSrc = event.target.getAttribute("src");
-    
-                    // Cria um elemento de imagem em tela cheia
-                    var fullscreenImage = document.createElement("div");
-                    fullscreenImage.classList.add("fullscreen-image");
-                    fullscreenImage.style.backgroundImage = "url('" + imageSrc + "')";
-    
-                    // Adiciona o elemento em tela cheia ao corpo do documento
-                    document.body.appendChild(fullscreenImage);
-    
-                    // Adiciona um evento de clique para fechar a imagem em tela cheia
-                    fullscreenImage.addEventListener("click", function () {
-                        document.body.removeChild(fullscreenImage);
-                    });
+                    openFullscreenImage(imageSrc);
                 }
             });
+    
+            function slide(n) {
+                var slides = document.querySelectorAll(".slide");
+                var currentIndex = Array.from(slides).findIndex(slide => slide.classList.contains("current"));
+    
+                if (currentIndex !== -1) {
+                    slides[currentIndex].classList.remove("current");
+                    var newIndex = (currentIndex + n + slides.length) % slides.length;
+                    slides[newIndex].classList.add("current");
+    
+                    slider.scrollLeft = slides[newIndex].offsetLeft;
+                }
+            }
+    
+            function openFullscreenImage(imageSrc) {
+                var fullscreenImage = document.createElement("div");
+                fullscreenImage.classList.add("fullscreen-image");
+                fullscreenImage.style.backgroundImage = "url('" + imageSrc + "')";
+                document.body.appendChild(fullscreenImage);
+    
+                fullscreenImage.addEventListener("click", function () {
+                    document.body.removeChild(fullscreenImage);
+                });
+            }
         });
-    </script>    
+    </script> 
 </body>
 </html>
